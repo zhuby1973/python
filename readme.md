@@ -15,3 +15,4 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 https://github.com/zhuby1973/python/import
 
 
+https://stackoverflow.com/questions/10418975/how-to-change-line-ending-settings
