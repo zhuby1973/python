@@ -1,0 +1,64 @@
+{% extends 'employee_register/base.html' %} 
+
+{% block content %}
+
+   {% if messages %}
+
+        {% for message in messages %}
+            <div class="alert alert-{% if message.tags == 'error' %}{{ 'danger' }}{% else %}{{ message.tags }}{% endif %}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {{message}}
+            </div>
+        {% endfor %}
+    
+    {% endif %}
+
+    <table class="table table-borderless">
+        <thead class="border-bottom font-weight-bold">
+            <tr>
+                <th>Full Name</th>
+                <th>Mobile</th>
+                <th>Code</th>
+                <th>Position</th>
+                <th>Image</th>
+                <th>
+                    <a href="{% url 'employee_insert' %}" class="btn btn-outline-success">
+                        <i class="fas fa-plus"></i>Add New
+                    </a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employee_list %}
+                <tr>
+                    <td>{{ employee.fullname }}</td>
+                    <td> {{ employee.mobile }} </td>
+                    <td>{{ employee.emp_code }} </td>
+                    <td>{{ employee.position }}</td>
+                    {% comment %} <td>{{ employee.image }}</td> {% endcomment %}
+                    <td>
+                        {% if employee.image %}
+                            <img src="{{employee.image.url}}" alt="Employee Image" width="80" height="80">
+                        {% else %}
+                            <p>No</p>
+                        {% endif %}
+                    </td> 
+                    <td>
+                        <a href="{% url 'employee_update' employee.id %}" class="btn text-secondary px-0">
+                            <i class="far fa-edit fa-lg"></i>
+                        </a>
+                        <form action="{% url 'employee_delete' employee.id %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button onclick="return confirm('Are you sure?')" type="submit" class="btn">
+                                 <i class="fas fa-trash-alt fa-lg text-danger float-right"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
