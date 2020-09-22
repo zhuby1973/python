@@ -1,0 +1,101 @@
+PS C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared> dir
+
+
+    Directory: C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         9/22/2020   9:07 AM                bin
+d-----         9/22/2020   9:07 AM                obj
+d-----         9/22/2020   9:07 AM                Properties
+-a----         9/22/2020   8:58 AM        6661528 nuget.exe
+-a----         9/22/2020   9:09 AM           2218 PartsUnlimited.Shared.csproj
+
+
+PS C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared> ./nuget.exe pack PartsUnlimited.Shared.csproj
+Attempting to build package from 'PartsUnlimited.Shared.csproj'.
+MSBuild auto-detection: using msbuild version '16.6.0.22303' from 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\bin'.
+Packing files from 'C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared\bin\Debug'.
+WARNING: NU5115: Description was not specified. Using 'Description'.
+WARNING: NU5115: Author was not specified. Using 'Admin'.
+WARNING: NU5128: Some target frameworks declared in the dependencies group of the nuspec and the lib/ref folder do not have exact matches in the other location. Consult the list of actions below:
+- Add a dependency group for .NETFramework4.5.1 to the nuspec
+Successfully created package 'C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared\PartsUnlimited.Shared.1.0.0.nupkg'.
+PS C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared> ./nuget.exe push -source "PartsUnlimitedShared" -ApiKey VSTS PartsUnlimited.Shared.1.0.0.nupkg
+MSBuild auto-detection: using msbuild version '16.6.0.22303' from 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\bin'.
+    [CredentialProvider]VstsCredentialProvider - Acquired bearer token using 'ADAL UI'
+    [CredentialProvider]VstsCredentialProvider - Attempting to exchange the bearer token for an Azure DevOps session token.
+Pushing PartsUnlimited.Shared.1.0.0.nupkg to 'https://pkgs.dev.azure.com/zhuby1973/e692ddd5-b5d0-4258-b759-b5f52e2065c1/_packaging/592750a3-445f-4c0e-995f-ffd3d9fd0aba/nuget/v2/'...
+  PUT https://pkgs.dev.azure.com/zhuby1973/e692ddd5-b5d0-4258-b759-b5f52e2065c1/_packaging/592750a3-445f-4c0e-995f-ffd3d9fd0aba/nuget/v2/
+  Accepted https://pkgs.dev.azure.com/zhuby1973/e692ddd5-b5d0-4258-b759-b5f52e2065c1/_packaging/592750a3-445f-4c0e-995f-ffd3d9fd0aba/nuget/v2/ 5296ms
+Your package was pushed.
+PS C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared> dir
+
+
+    Directory: C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         9/22/2020   9:07 AM                bin
+d-----         9/22/2020   9:25 AM                obj
+d-----         9/22/2020   9:07 AM                Properties
+-a----         9/22/2020   8:58 AM        6661528 nuget.exe
+-a----         9/22/2020   9:20 AM            149 packages.config
+-a----         9/22/2020   9:13 AM           3373 PartsUnlimited.Shared.1.0.0.nupkg
+-a----         9/22/2020   9:20 AM           2523 PartsUnlimited.Shared.csproj
+-a----         9/22/2020   9:22 AM            201 TaxService.cs
+
+
+PS C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared> cd Properties
+PS C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared\Properties> dir
+
+
+    Directory: C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared\Properties
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         9/22/2020   9:07 AM           1449 AssemblyInfo.cs
+
+
+PS C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared\Properties> type .\AssemblyInfo.cs
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+// General Information about an assembly is controlled through the following
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyTitle("PartsUnlimited.Shared")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("PartsUnlimited.Shared")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+
+// Setting ComVisible to false makes the types in this assembly not visible
+// to COM components.  If you need to access a type in this assembly from
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("044a235b-cbfd-431f-b0a6-807f49792583")]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Build and Revision Numbers
+// by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
+PS C:\Users\Admin\source\repos\PartsUnlimited.Shared\PartsUnlimited.Shared\Properties>
+
